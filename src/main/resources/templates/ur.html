@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Resource</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+            display: flex;
+            height: 100vh;
+            overflow: hidden;
+            background-color: #f0f2f5;
+        }
+
+        .sidebar {
+            width: 250px;
+            background-color: #2c3e50;
+            color: #ecf0f1;
+            height: 100%;
+            position: fixed;
+            top: 0;
+            left: 0;
+            padding-top: 20px;
+            box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
+            display: flex;
+            flex-direction: column;
+        }
+
+        .sidebar h2 {
+            text-align: center;
+            margin: 0;
+            padding: 15px 0;
+            background-color: #34495e;
+            font-size: 1.5em;
+        }
+
+        .sidebar a {
+            color: #ecf0f1;
+            text-decoration: none;
+            padding: 15px 20px;
+            display: block;
+            transition: background-color 0.3s;
+        }
+
+        .sidebar a:hover {
+            background-color: #16a085;
+        }
+
+        .main-content {
+            margin-left: 250px;
+            padding: 20px;
+            flex: 1;
+        }
+
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background-color: #34495e;
+            color: #ecf0f1;
+            padding: 10px 20px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+
+        .navbar h1 {
+            margin: 0;
+            font-size: 24px;
+        }
+
+        .navbar .search input {
+            padding: 5px;
+            border: none;
+            border-radius: 5px;
+        }
+
+        .content {
+            padding: 20px;
+            background: #ffffff;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            margin-top: 20px;
+        }
+
+        .content h2 {
+            margin-top: 0;
+            font-size: 22px;
+            color: #2c3e50;
+        }
+
+        .card {
+            background: #ffffff;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            padding: 15px;
+            margin-bottom: 20px;
+        }
+
+        .card h3 {
+            margin-top: 0;
+            color: #16a085;
+        }
+
+        .card p {
+            font-size: 16px;
+            color: #555555;
+        }
+    </style>
+</head>
+<body>
+<div class="sidebar">
+    <h2>User Panel</h2>
+    <a href="#">Profile</a>
+    <a href="#">Settings</a>
+    <a href="#">Messages</a>
+    <a href="#">Notifications</a>
+    <a href="#">Logout</a>
+</div>
+<div class="main-content">
+    <div class="navbar">
+        <h1>User Dashboard</h1>
+        <div class="search">
+            <input type="text" placeholder="Search...">
+        </div>
+    </div>
+    <div class="content">
+        <h2>Welcome, User!</h2>
+        <div class="card">
+            <h3>Profile Overview</h3>
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec a arcu vel libero efficitur bibendum.</p>
+        </div>
+        <div class="card">
+            <h3>Recent Activity</h3>
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus imperdiet dolor eu quam egestas, id fermentum massa fermentum.</p>
+        </div>
+        <div class="card">
+            <h3>Account Settings</h3>
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur euismod urna sit amet risus interdum, eu condimentum mi pretium.</p>
+        </div>
+    </div>
+</div>
+</body>
+</html>

@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+<head>
+  <title>Add User</title>
+  <link rel="stylesheet" type="text/css" href="/style.css">
+</head>
+<style>
+  body {
+    font-family: Arial, sans-serif;
+    margin: 20px;
+  }
+
+  h1 {
+    color: #333;
+  }
+
+  form {
+    margin-bottom: 20px;
+  }
+
+  div {
+    margin-bottom: 10px;
+  }
+
+  label {
+    display: inline-block;
+    width: 120px;
+  }
+
+  input {
+    padding: 5px;
+    width: 200px;
+  }
+
+  button {
+    padding: 5px 10px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    cursor: pointer;
+  }
+
+  button:hover {
+    background-color: #45a049;
+  }
+
+  p {
+    color: green;
+  }
+  #message {
+    color: red; /* Text color */
+    margin-top: 10px; /* Space between the form and message */
+    font-weight: bold; /* Make the text bold */
+  }
+
+</style>
+<body>
+<h1>Add User</h1>
+<form id="userForm">
+  <label for="username">Username:</label>
+  <input type="text" id="username" name="username"><br><br>
+
+  <label for="password">Password:</label>
+  <input type="password" id="password" name="password"><br><br>
+
+  <label for="email">Email:</label>
+  <input type="email" id="email" name="email"><br><br>
+
+  <div style="visibility:hidden" id="message">User is Already Exists</div>
+
+  <button type="submit">Submit</button>
+</form>
+
+<script>
+  document.getElementById('userForm').addEventListener('submit', function(event) {
+    event.preventDefault();
+
+    const formData = {
+      username: document.getElementById('username').value,
+      password: document.getElementById('password').value,
+      email: document.getElementById('email').value
+    };
+
+    fetch('/adduser', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify(formData)
+    })
+            .then(response => response.text())
+            .then(data => {
+              document.getElementById("message").style.visibility = "visible";
+              if(data.length>0){
+                document.getElementById("message").innerHTML = data;
+              }
+              else
+                document.getElementById("message").innerHTML = "User Already Exists";
+
+            })
+            .catch(error => {
+              console.error('Error:', error);
+            });
+  });
+</script>
+</body>
+</html>

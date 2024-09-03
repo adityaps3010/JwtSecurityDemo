@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Homepage</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+        }
+        .container {
+            max-width: 800px;
+            margin: 50px auto;
+            padding: 20px;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            background-color: #fff;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        h1 {
+            color: #333;
+        }
+        .links {
+            margin-top: 20px;
+        }
+        .links a {
+            display: inline-block;
+            padding: 15px 30px;
+            font-size: 1.2em;
+            color: #fff;
+            background-color: #007bff;
+            border: none;
+            border-radius: 5px;
+            text-decoration: none;
+            margin: 10px;
+            transition: background-color 0.3s ease;
+        }
+        .links a:hover {
+            background-color: #0056b3;
+        }
+        .links a.admin {
+            background-color: #28a745;
+        }
+        .links a.admin:hover {
+            background-color: #218838;
+        }
+        .links a.global {
+            background-color: #17a2b8;
+        }
+        .links a.global:hover {
+            background-color: #138496;
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+    <h1>Welcome to the Homepage</h1>
+    <p>Select a resource to explore:</p>
+    <div class="links">
+        <a href="/adminResource" class="admin">Admin Resources</a>
+        <a href="/GlobalResource" class="global">Global Resources</a>
+    </div>
+</div>
+</body>
+</html>

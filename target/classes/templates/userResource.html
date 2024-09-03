@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+  <title>Welcome</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      text-align: center;
+      margin: 50px;
+    }
+    .container {
+      max-width: 600px;
+      margin: 0 auto;
+      padding: 20px;
+      border: 1px solid #ddd;
+      border-radius: 8px;
+    }
+    .message {
+      font-size: 1.2em;
+      color: #333;
+    }
+    .info {
+      color: #555;
+    }
+    .btn {
+      display: inline-block;
+      padding: 10px 20px;
+      font-size: 1em;
+      color: #fff;
+      background-color: #007bff;
+      border: none;
+      border-radius: 5px;
+      text-decoration: none;
+    }
+    .btn:hover {
+      background-color: #0056b3;
+    }
+  </style>
+  <script>
+    async function fetchProtectedData() {
+      const token = document.cookie
+              .split('; ')
+              .find(row => row.startsWith('jwtToken='))
+              .split('=')[1];
+      const response = await fetch('/display_any', {
+        headers: {
+          'Authorization': 'Bearer ' + token
+        }
+      });
+
+      const messageElement = document.getElementById('message');
+      if (response.ok) {
+        const data = await response.text();
+        messageElement.innerHTML=data;
+      } else {
+        messageElement.innerHTML = `
+                    <h2>Access Denied</h2>
+                    <p class="message">Your session has expired or you are not authorized to view this page.</p>
+                    <p class="info">Please ensure you are logged in with the correct credentials. If you continue to experience issues, contact support for assistance.</p>
+                    <a href="/login" class="btn">Return to Login page</a>
+                `;
+      }
+    }
+
+    window.onload = fetchProtectedData;
+  </script>
+</head>
+<body>
+<div >
+  <p id="message">Loading...</p>
+</div>
+</body>
+</html>
